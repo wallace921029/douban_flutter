@@ -16,6 +16,8 @@ class _PersonState extends State<Person> with SingleTickerProviderStateMixin{
     new Text("音乐")
   ];
 
+  ScrollController _scrollController = new ScrollController();
+
   @override
   void initState() {
     super.initState();
@@ -178,28 +180,58 @@ class _PersonState extends State<Person> with SingleTickerProviderStateMixin{
                             labelColor: Colors.black,
                             indicatorColor: Colors.black,
                             indicatorSize: TabBarIndicatorSize.label,
+                            onTap: (index) {
+                              _scrollController.animateTo(
+                                index*MediaQuery.of(context).size.width.toDouble(), 
+                                duration: Duration(milliseconds: 500), 
+                                curve: Curves.ease
+                              );
+                            }
                           )
                         )
                       )
                     ),
                     // Views
-                    new SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: <Widget>[
-                          new Text("sdf123123123123123"),
-                          new Text("sdf123123123123123"),
-                          new Text("sdf123123123123123"),
-                          new Text("sdf123123123123123"),
-                          new Text("sdf123123123123123"),
-                          new Text("sdf123123123123123"),
-                          new Text("sdf123123123123123"),
-                          new Text("sdf123123123123123"),
-                          new Text("sdf123123123123123"),
-                          new Text("sdf123123123123123"),
-                          new Text("sdf123123123123123"),
-                          new Text("sdf123123123123123"),
-                        ]
+                    NotificationListener<ScrollNotification>(
+                      onNotification: (ScrollNotification scrollNotification) {
+                        if (scrollNotification.metrics.pixels < MediaQuery.of(context).size.width) {
+                          _tabController.animateTo(0);
+                        }
+                        if ( MediaQuery.of(context).size.width <= scrollNotification.metrics.pixels && scrollNotification.metrics.pixels < MediaQuery.of(context).size.width*2) {
+                          _tabController.animateTo(1);
+                        }
+                        if ( MediaQuery.of(context).size.width*2 <= scrollNotification.metrics.pixels && scrollNotification.metrics.pixels < MediaQuery.of(context).size.width*3) {
+                          _tabController.animateTo(2);
+                        }
+                      },
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        controller: _scrollController,
+                        child: Row(
+                          children: <Widget>[
+                            MovieCoverGroup(
+                              list: [
+                                Expanded(child: MovieCover(src: "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1762082751,4254581079&fm=58", text: "想看")),
+                                Expanded(child: MovieCover(src: "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1762082751,4254581079&fm=58", text: "在看")),
+                                Expanded(child: MovieCover(src: "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1762082751,4254581079&fm=58", text: "看过"))
+                              ]
+                            ),
+                            MovieCoverGroup(
+                              list: [
+                                Expanded(child: MovieCover(src: "https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=90352328,2560369800&fm=58", text: "想读")),
+                                Expanded(child: MovieCover(src: "https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=90352328,2560369800&fm=58", text: "在读")),
+                                Expanded(child: MovieCover(src: "https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=90352328,2560369800&fm=58", text: "读过"))
+                              ]
+                            ),
+                            MovieCoverGroup(
+                              list: [
+                                Expanded(child: MovieCover(src: "https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=4063078013,3345903436&fm=58", text: "想听")),
+                                Expanded(child: MovieCover(src: "https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=4063078013,3345903436&fm=58", text: "在听")),
+                                Expanded(child: MovieCover(src: "https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=4063078013,3345903436&fm=58", text: "听过"))
+                              ]
+                            )
+                          ]
+                        )
                       )
                     )
                   ]
@@ -207,6 +239,53 @@ class _PersonState extends State<Person> with SingleTickerProviderStateMixin{
               )
             )
           ],
+        )
+      )
+    );
+  }
+}
+
+// 封面
+class MovieCover extends StatelessWidget {
+  final String src;
+  final String text;
+
+  const MovieCover({Key key, this.src, this.text}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: BorderRadius.circular(4.0),
+            child: Image.network(
+              src,
+              fit: BoxFit.cover, width: 50, height: 50*1.4)
+          ),
+          Text(
+            text,
+            style: TextStyle(fontSize: 12.0)
+          )
+        ]
+      )
+    );
+  }
+}
+
+class MovieCoverGroup extends StatelessWidget {
+  final List<Widget> list;
+
+  const MovieCoverGroup({Key key, this.list}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Container(
+        padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+        width: MediaQuery.of(context).size.width,
+        child: Row(
+          children: list
         )
       )
     );
