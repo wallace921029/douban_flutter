@@ -40,9 +40,9 @@ class _PersonState extends State<Person> with SingleTickerProviderStateMixin{
             }
           });
         },
-        child: new CustomScrollView(
+        child: CustomScrollView(
           slivers: <Widget>[
-            new SliverAppBar(
+            SliverAppBar(
               leading: new Icon(Icons.settings, color: _dynamicColor),
               title: new Text("我的",
                 style: new TextStyle(
@@ -116,7 +116,7 @@ class _PersonState extends State<Person> with SingleTickerProviderStateMixin{
               )
             ),
             // 我的书影音
-            new SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: new Container(
                 color: Colors.white,
                 margin: new EdgeInsets.fromLTRB(0, 8, 0, 0),
@@ -155,7 +155,7 @@ class _PersonState extends State<Person> with SingleTickerProviderStateMixin{
               )
             ),
             // 影视、图书、音乐
-            new SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: new Container(
                 color: Colors.white,
                 padding: new EdgeInsets.fromLTRB(0, 8, 0, 8),
@@ -237,6 +237,69 @@ class _PersonState extends State<Person> with SingleTickerProviderStateMixin{
                   ]
                 )
               )
+            ),
+            // 看电影
+            SliverToBoxAdapter(
+              child: Container(
+                margin: EdgeInsets.fromLTRB(0, 8, 0, 8),
+                decoration: BoxDecoration(
+                  color: Colors.white
+                ),
+                child: ListTile(
+                  leading: Icon(Icons.live_tv, color: Colors.purple),
+                  title: Text("看电影"),
+                  trailing: Icon(Icons.keyboard_arrow_right)
+                )
+              )
+            ),
+            // 我的发布
+            SliverToBoxAdapter(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white
+                ),
+                child: Column(
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.edit, color: Colors.black),
+                      title: Text("我的发布"),
+                      trailing: Icon(Icons.keyboard_arrow_right)
+                    ),
+                    Divider(height: 0),
+                    ListTile(
+                      leading: Icon(Icons.center_focus_strong, color: Colors.blue),
+                      title: Text("我的关注"),
+                      trailing: Icon(Icons.keyboard_arrow_right)
+                    ),
+                    Divider(height: 0),
+                    ListTile(
+                      leading: Icon(Icons.collections, color: Colors.orange),
+                      title: Text("相册"),
+                      trailing: Icon(Icons.keyboard_arrow_right)
+                    ),
+                    Divider(height: 0),
+                    ListTile(
+                      leading: Icon(Icons.bookmark_border, color: Colors.green),
+                      title: Text("豆列/收藏"),
+                      trailing: Icon(Icons.keyboard_arrow_right)
+                    )
+                  ]
+                )
+              )
+            ),
+            // 钱包
+            SliverToBoxAdapter(
+              child: Container(
+                margin: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                decoration: BoxDecoration(
+                  color: Colors.white
+                ),
+                child: ListTile(
+                  leading: Icon(Icons.account_balance_wallet, color: Colors.lightBlue),
+                  title: Text("钱包"),
+                  trailing: Icon(Icons.keyboard_arrow_right)
+                )
+              ),
             )
           ],
         )
