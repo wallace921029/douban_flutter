@@ -42,6 +42,7 @@ class _PersonState extends State<Person> with SingleTickerProviderStateMixin{
         },
         child: CustomScrollView(
           slivers: <Widget>[
+            // 头部信息栏
             SliverAppBar(
               leading: new Icon(Icons.settings, color: _dynamicColor),
               title: new Text("我的",
