@@ -35,7 +35,7 @@ class _BookState extends State<Book> with SingleTickerProviderStateMixin{
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.white,
-        title: new SearchInput(fillColor: new Color(0xffd5d5d5)),
+        title: new SearchInput(),
         actions: <Widget>[
           new IconButton(
             icon: new Icon(Icons.mail, color: Colors.grey),
