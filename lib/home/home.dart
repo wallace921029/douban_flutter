@@ -1,9 +1,9 @@
-import 'package:douban_flutter/publish_page.dart';
-import 'package:douban_flutter/recommend_card.dart';
-import 'package:douban_flutter/search_input.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
+
+import 'package:douban_flutter/home/publish_page.dart';
+import 'package:douban_flutter/home/recommend_card.dart';
+import 'package:douban_flutter/home/search_input.dart';
 
 class Home extends StatefulWidget{
   @override

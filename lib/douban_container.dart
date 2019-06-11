@@ -1,8 +1,8 @@
-import 'package:douban_flutter/book.dart';
-import 'package:douban_flutter/group.dart';
-import 'package:douban_flutter/home.dart';
+import 'package:douban_flutter/book/book.dart';
+import 'package:douban_flutter/group/group.dart';
+import 'package:douban_flutter/home/home.dart';
 import 'package:douban_flutter/market/market.dart';
-import 'package:douban_flutter/person.dart';
+import 'package:douban_flutter/person/person.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 

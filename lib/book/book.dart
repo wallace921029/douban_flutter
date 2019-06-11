@@ -1,7 +1,7 @@
-import 'package:douban_flutter/four_icons.dart';
-import 'package:douban_flutter/movie_rate.dart';
-import 'package:douban_flutter/search_input.dart';
-import 'package:douban_flutter/today_movie.dart';
+import 'package:douban_flutter/book/four_icons.dart';
+import 'package:douban_flutter/book/movie_rate.dart';
+import 'package:douban_flutter/book/today_movie.dart';
+import 'package:douban_flutter/home/search_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
