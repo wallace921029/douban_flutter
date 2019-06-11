@@ -1,7 +1,7 @@
 import 'package:douban_flutter/book.dart';
 import 'package:douban_flutter/group.dart';
 import 'package:douban_flutter/home.dart';
-import 'package:douban_flutter/market.dart';
+import 'package:douban_flutter/market/market.dart';
 import 'package:douban_flutter/person.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
