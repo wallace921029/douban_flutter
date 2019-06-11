@@ -12,8 +12,8 @@ samples, guidance on mobile development, and a full API reference.
 
 
 ## Screenshot
-[![V63PVU.th.png](https://s2.ax1x.com/2019/06/10/V63PVU.th.png)](https://imgchr.com/i/V63PVU)
-[![V63dZ8.md.png](https://s2.ax1x.com/2019/06/10/V63dZ8.th.png)](https://imgchr.com/i/V63dZ8)
-[![VcYG5T.md.png](https://s2.ax1x.com/2019/06/11/VcYG5T.th.png)](https://imgchr.com/i/VcYG5T)
-[![V63gs0.md.png](https://s2.ax1x.com/2019/06/10/V63gs0.th.png)](https://imgchr.com/i/V63gs0)
+[![V63PVU.md.png](https://s2.ax1x.com/2019/06/10/V63PVU.md.png)](https://imgchr.com/i/V63PVU)
+[![V63dZ8.md.png](https://s2.ax1x.com/2019/06/10/V63dZ8.md.png)](https://imgchr.com/i/V63dZ8)
+[![VcYG5T.md.png](https://s2.ax1x.com/2019/06/11/VcYG5T.md.png)](https://imgchr.com/i/VcYG5T)
+[![V63gs0.md.png](https://s2.ax1x.com/2019/06/10/V63gs0.md.png)](https://imgchr.com/i/V63gs0)
 
