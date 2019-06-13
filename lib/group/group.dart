@@ -173,7 +173,7 @@ class _GroupState extends State<Group>{
             child: Container(
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Color.fromRGBO(255, 255, 255, 0.8),
+                color: Color.fromRGBO(255, 255, 255, 0.6),
                 boxShadow: [
                   BoxShadow(
                     color: Color(0xff8a8a8a),

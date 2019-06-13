@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FourIcons extends StatelessWidget{
+  final List<String> names;
+
+  FourIcons({Key key, this.names});
+
   @override
   Widget build(BuildContext context) {
     return new Padding(
@@ -18,7 +22,7 @@ class FourIcons extends StatelessWidget{
                   shape: new CircleBorder(),
                   onPressed: () {},
                 ),
-                new Text("找电影", style: new TextStyle(fontSize: 12.0, color: Colors.grey))
+                new Text(names[0], style: new TextStyle(fontSize: 12.0, color: Colors.grey))
               ]
             )
           ),
@@ -32,7 +36,7 @@ class FourIcons extends StatelessWidget{
                   shape: new CircleBorder(),
                   onPressed: () {},
                 ),
-                new Text("豆瓣榜单", style: new TextStyle(fontSize: 12.0, color: Colors.grey))
+                new Text(names[1], style: new TextStyle(fontSize: 12.0, color: Colors.grey))
               ]
             )
           ),
@@ -46,7 +50,7 @@ class FourIcons extends StatelessWidget{
                   shape: new CircleBorder(),
                   onPressed: () {},
                 ),
-                new Text("豆瓣猜", style: new TextStyle(fontSize: 12.0, color: Colors.grey))
+                new Text(names[2], style: new TextStyle(fontSize: 12.0, color: Colors.grey))
               ]
             )
           ),
@@ -60,7 +64,7 @@ class FourIcons extends StatelessWidget{
                   shape: new CircleBorder(),
                   onPressed: () {},
                 ),
-                new Text("豆瓣片单", style: new TextStyle(fontSize: 12.0, color: Colors.grey))
+                new Text(names[3], style: new TextStyle(fontSize: 12.0, color: Colors.grey))
               ]
             )
           )
