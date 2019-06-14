@@ -45,6 +45,7 @@ class _HotMovieState extends State<HotMovie> with SingleTickerProviderStateMixin
                     tabs: _tabs,
                     labelColor: Colors.black,
                     indicatorColor: Colors.black,
+                    indicatorSize: TabBarIndicatorSize.label,
                     onTap: (index) {
                       setState(() {
                         _currentIndex = index;

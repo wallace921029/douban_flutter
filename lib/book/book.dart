@@ -58,6 +58,7 @@ class _BookState extends State<Book> with SingleTickerProviderStateMixin{
               indicatorColor: Colors.black,
               labelColor: Colors.black,
               unselectedLabelColor: Colors.grey,
+              indicatorSize: TabBarIndicatorSize.label,
             )
           ),
           // TabBarView
