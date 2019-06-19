@@ -20,10 +20,9 @@ class _SearchInputState extends State<SearchInput>{
   File _image;
   
   Future _getImage() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.camera);
-
+    var v = await ImagePicker.pickImage(source: ImageSource.camera);
     setState(() {
-      _image = image;
+      _image = v;
     });
   }
 

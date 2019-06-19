@@ -1,11 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:event_bus/event_bus.dart';
+import 'package:image_picker/image_picker.dart';
 
 EventBus eventBus = EventBus();
 class SendImageEvent{
-  String src;
-  SendImageEvent(this.src);
+  File image;
+  SendImageEvent({this.image});
 }
 
 class PublishPage extends StatefulWidget{
@@ -33,7 +36,7 @@ class _PublishPage extends State<PublishPage>{
       // 需要监听 mounted 状态，否则会报错
       if(mounted) {
         setState(() {
-          _imageLists.insert(_imageLists.length-1, new _ImagePicture(onData.src));
+          _imageLists.insert(_imageLists.length-1, new _ImagePicture(image: onData.image));
         });
       }
     });
@@ -144,12 +147,12 @@ class _PublishPage extends State<PublishPage>{
 }
 
 class _AddImageButton extends StatelessWidget{
-  final String src = "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2229346952,2661940409&fm=27&gp=0.jpg";
   @override
   Widget build(BuildContext context) {
     return new GestureDetector(
-      onTap: () {
-        eventBus.fire(new SendImageEvent(src));
+      onTap: () async {
+        var v = await ImagePicker.pickImage(source: ImageSource.gallery);
+        eventBus.fire(new SendImageEvent(image: v));
       },
       child: new Container(
         width: MediaQuery.of(context).size.width / 4 - 8,
@@ -168,8 +171,8 @@ class _AddImageButton extends StatelessWidget{
 }
 
 class _ImagePicture extends StatelessWidget{
-  final String src;
-  _ImagePicture(this.src);
+  final File image;
+  _ImagePicture({this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -178,7 +181,7 @@ class _ImagePicture extends StatelessWidget{
       height: MediaQuery.of(context).size.width/4,
       child: new Padding(
         padding: new EdgeInsets.all(4.0),
-        child: new Image.network(src)
+        child: new Image.file(image)
       )
     );
   }
