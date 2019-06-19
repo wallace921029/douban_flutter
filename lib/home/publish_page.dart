@@ -152,7 +152,9 @@ class _AddImageButton extends StatelessWidget{
     return new GestureDetector(
       onTap: () async {
         var v = await ImagePicker.pickImage(source: ImageSource.gallery);
-        eventBus.fire(new SendImageEvent(image: v));
+        if (v != null) {
+          eventBus.fire(new SendImageEvent(image: v));
+        }
       },
       child: new Container(
         width: MediaQuery.of(context).size.width / 4 - 8,

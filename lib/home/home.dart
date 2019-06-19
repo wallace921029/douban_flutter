@@ -5,6 +5,8 @@ import 'package:douban_flutter/home/publish_page.dart';
 import 'package:douban_flutter/home/recommend_card.dart';
 import 'package:douban_flutter/home/search_input.dart';
 
+import 'custom_route.dart';
+
 class Home extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
@@ -82,12 +84,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
         child: new Icon(Icons.create, color: Colors.white),
         backgroundColor: Colors.black,
         onPressed: (){
-          Navigator.push(context, new MaterialPageRoute(
-            fullscreenDialog: true,
-            builder: (context){
-              return new PublishPage();
-            }
-          ));
+          // Navigator.push(context, new MaterialPageRoute(
+          //   fullscreenDialog: true,
+          //   builder: (context){
+          //     return new PublishPage();
+          //   }
+          // ));
+          Navigator.of(context).push(CustomRoute(widget: PublishPage()));
         }
       ),
     );
