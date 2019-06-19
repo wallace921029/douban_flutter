@@ -1,7 +1,9 @@
-import 'package:douban_flutter/douban_color/douban_color.dart';
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:image_picker/image_picker.dart';
 
 class SearchInput extends StatefulWidget{
   SearchInput({Key key, this.fillColor});
@@ -15,6 +17,16 @@ class SearchInput extends StatefulWidget{
 }
 
 class _SearchInputState extends State<SearchInput>{
+  File _image;
+  
+  Future _getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    setState(() {
+      _image = image;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,7 +38,7 @@ class _SearchInputState extends State<SearchInput>{
           prefixIcon: Icon(Icons.search, color: Colors.grey),
           suffixIcon: GestureDetector(
             child: Icon(Icons.filter_center_focus, color: Colors.grey),
-            onTap: () {},
+            onTap: _getImage,
           ),
           filled: true,
           fillColor: widget.fillColor,
